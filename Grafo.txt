@@ -1,0 +1,68 @@
+package ListaDeAdjacencia;
+
+import java.util.ArrayList;
+
+public class Grafo {
+
+    private ArrayList<Vertice> vertices = null;
+    private ArrayList<Aresta> arestas = null;
+
+    public Grafo() {
+        vertices = new ArrayList<>();
+        arestas = new ArrayList<>();
+    }
+
+    public ArrayList<Vertice> getVertices() {
+        return vertices;
+    }
+
+    public void setVertices(ArrayList<Vertice> vertices) {
+        this.vertices = vertices;
+    }
+
+    public ArrayList<Aresta> getArestas() {
+        return arestas;
+    }
+
+    public void setArestas(ArrayList<Aresta> arestas) {
+        this.arestas = arestas;
+    }
+
+    public void addVertice(Vertice novoVertice) {
+        vertices.add(novoVertice);
+    }
+
+    public Aresta addAresta(Vertice v1, Vertice v2) {
+        Aresta novaAresta = new Aresta(v1, v2);
+        novaAresta.setId(arestas.size());
+        arestas.add(novaAresta);
+        return novaAresta;
+    }
+
+    public int qtdVertices() {
+        return vertices.size();
+    }
+
+    public int qtdArestas() {
+        return arestas.size();
+    }
+
+    public Aresta buscarAresta(int idAresta) {
+        Aresta busca = null;
+        if (idAresta < arestas.size() && idAresta >= 0) {
+            busca = arestas.get(idAresta);
+        }
+        return busca;
+    }
+
+    public Vertice buscarVertice(int idVertice) {
+        Vertice busca = null;
+        if (idVertice < vertices.size() && idVertice >= 0) {
+            busca = vertices.get(idVertice);
+        }
+        return busca;
+    }
+
+    
+
+}
